@@ -40,8 +40,10 @@ export async function POST(request: Request) {
       coverImage: getRandomInterviewCover(),
       createdAt: new Date().toISOString(),
     };
+    console.log("Creating interview...");
 
     await db.collection("interviews").add(interview);
+    console.log("Interview created");
 
     return Response.json({ success: true }, { status: 200 });
   } catch (error) {
